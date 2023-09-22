@@ -177,7 +177,7 @@ class Installer extends BaseInstaller
     }
 
         
-    protected function templatePath($path, array $vars = array())
+    protected function templatePath(string $path, array $vars = []): string
     {
         if (strpos($path, '{') !== false) {
             extract($vars);
