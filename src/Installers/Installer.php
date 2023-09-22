@@ -98,7 +98,8 @@ class Installer extends BaseInstaller
         }
 
                
-        $package_local_name = array_pop(explode('/', $name));    
+        $p = explode('/', $name);
+        $package_local_name = array_pop($p);   
         $availableVars = $this->inflectPackageVars(compact('name', 'vendor', 'type', 'package_local_name'));
 
         $extra = $package->getExtra();
