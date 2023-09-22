@@ -8,7 +8,6 @@ use Composer\Installer\LibraryInstaller;
 use Composer\Installers\Installer as InstallerBase;
 use Composer\CustomDirectoryInstaller\LibraryInstaller as BaseCustomDirectoryLibraryInstallerInstaller;
 use Composer\Installers\BaseInstaller;
-use VendorPatch\OomphInc\ComposerInstallersExtender\Installers\CustomInstaller;
 
 use Composer\Composer;
 use Composer\Installer\BinaryInstaller;
