@@ -45,11 +45,9 @@ class Installer extends BaseInstaller
     /** @var BinaryInstaller */
     protected $binaryInstaller;
     
-  // public function __construct(PackageInterface $package = null, Composer $composer = null, IOInterface $io = null)
-    public function __construct()
+   public function __construct(PackageInterface $package = null, Composer $composer = null, IOInterface $io = null)
     {
-        $args = func_get_args();
-        parent::__construct(...$args);
+        parent::__construct($package, $composer, $io);
         $this->getInstallerTypes();
     }
       
