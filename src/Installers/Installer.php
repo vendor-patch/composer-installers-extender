@@ -68,9 +68,6 @@ class Installer extends InstallerBase
         
       try{   
         $installer = new CustomInstaller($package, $this->composer, $this->io);
-   //     if($this->composer){
-         //   $this->composer->getInstallationManager()->addInstaller($installer);   
-   //     }
         $path = $installer->getInstallPath($package, $package->getType());
 
 
