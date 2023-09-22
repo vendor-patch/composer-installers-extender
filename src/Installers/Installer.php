@@ -13,20 +13,25 @@ use OomphInc\ComposerInstallersExtender\Installers\CustomInstaller;
 
 class Installer extends BaseInstaller
 {
+    /*
     protected $locations = [];
- 
-    protected $package;
+    public function getLocations()
+    {
+        return $this->locations;
+    }
    
+    */
+    
     protected $installerTypes;
-
-        /** @var PartialComposer */
-    protected $composer;
-
     /** @var string */
     protected $vendorDir;
 
     /** @var DownloadManager|null */
     protected $downloadManager;
+
+    protected $package;
+        /** @var PartialComposer */
+    protected $composer;
 
     /** @var IOInterface */
     protected $io;
@@ -120,10 +125,7 @@ class Installer extends BaseInstaller
         return $this->templatePath($locations[$packageType], $availableVars);
     }
 
-    public function getLocations()
-    {
-        return $this->locations;
-    }
+
     
     protected function mapCustomInstallPaths(array $paths, $name, $type, $vendor = NULL)
     {
