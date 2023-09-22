@@ -57,7 +57,7 @@ class Installer extends BaseInstaller
     /**
      * {@inheritDoc}
      */
-    public function getInstallPath(): string
+    public function getInstallPath(PackageInterface $package, string $frameworkType = ''): string
     {
 
        $args = func_get_args();
