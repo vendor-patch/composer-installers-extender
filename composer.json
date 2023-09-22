@@ -38,7 +38,7 @@
     },
     "autoload":{
         "psr-4": {
-            "VendorPatch\\OIDplus\\OomphInc\\ComposerInstallersExtender\\": "src/"
+            "VendorPatch\\OomphInc\\ComposerInstallersExtender\\": "src/"
         }
     },
     "autoload-dev": {
@@ -55,7 +55,7 @@
         "sort-packages": true
     },
     "extra": {
-        "class": "VendorPatch\\OIDplus\\OomphInc\\ComposerInstallersExtender\\Plugin"
+        "class": "VendorPatch\\OomphInc\\ComposerInstallersExtender\\Plugin"
     },
     "minimum-stability": "dev",
     "prefer-stable": true
