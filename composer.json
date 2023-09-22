@@ -6,6 +6,10 @@
     "license": "MIT",
     "authors": [
         {
+            "name": "Till Wehowski",
+            "email": "software@frdl.de"
+        },   
+        {
             "name": "Stephen Beemsterboer",
             "email": "stephen@oomphinc.com",
             "homepage": "https://github.com/balbuf"
@@ -16,11 +20,14 @@
             "homepage": "http://oomph.is/ndentzau"
         }
     ],
+    "provide" : {
+         "oomphinc/composer-installers-extender" : "dev-master"
+    },
     "support": {
-        "issues": "https://github.com/oomphinc/composer-installers-extender/issues"
+        "issues": "https://github.com/vendor-patch/composer-installers-extender/issues"
     },
     "require": {
-        "php": ">=7.1",
+        "php": ">=7.0",
         "composer-plugin-api": "^1.1 || ^2.0",
         "composer/installers": "^1.0 || ^2.0"
     },
