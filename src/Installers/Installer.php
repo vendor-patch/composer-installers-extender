@@ -55,19 +55,7 @@ class Installer extends InstallerBase
     protected $binaryInstaller;
 
 
-   public function __construct(
-        IOInterface $io,
-        Composer $composer,
-        string $type = 'library',
-        ?Filesystem $filesystem = null,
-        ?BinaryInstaller $binaryInstaller = null
-    ) {
-        parent::__construct($io, $composer, $type, $filesystem, $binaryInstaller);
-         $this->getInstallerTypes();
-    }
-    
-   
- 
+
     /**
      * {@inheritDoc}
      */
