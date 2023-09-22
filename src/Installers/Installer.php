@@ -12,7 +12,6 @@ use VendorPatch\OomphInc\ComposerInstallersExtender\Installers\CustomInstaller;
 
 use Composer\Composer;
 use Composer\Installer\BinaryInstaller;
-use Composer\Installer\LibraryInstaller;
 use Composer\IO\IOInterface;
 use Composer\Package\Package;
 use Composer\Package\PackageInterface;
