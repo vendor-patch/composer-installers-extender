@@ -2,14 +2,14 @@
 
 declare(strict_types = 1);
 
-namespace OomphInc\ComposerInstallersExtender\Installers;
+namespace VendorPatch\OomphInc\ComposerInstallersExtender\Installers;
 
 use Composer\Package\PackageInterface;
 use Composer\Installer\LibraryInstaller;
 use Composer\Installers\Installer;
 use Composer\CustomDirectoryInstaller\LibraryInstaller as BaseCustomDirectoryLibraryInstallerInstaller;
 use Composer\Installers\BaseInstaller;
-use OomphInc\ComposerInstallersExtender\Installers\CustomInstaller;
+use VendorPatch\OomphInc\ComposerInstallersExtender\Installers\CustomInstaller;
 
 class Installer extends BaseInstaller
 {
