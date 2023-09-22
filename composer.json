@@ -1,5 +1,5 @@
 {
-    "name": "oomphinc/composer-installers-extender",
+    "name": "vendor-patch/composer-installers-extender",
     "description": "Extend the composer/installers plugin to accept any arbitrary package type.",
     "homepage": "http://www.oomphinc.com/",
     "type": "composer-plugin",
