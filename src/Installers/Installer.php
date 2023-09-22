@@ -4,12 +4,21 @@ declare(strict_types = 1);
 
 namespace VendorPatch\OomphInc\ComposerInstallersExtender\Installers;
 
-use Composer\Package\PackageInterface;
 use Composer\Installer\LibraryInstaller;
 use Composer\Installers\Installer as InstallerBase;
 use Composer\CustomDirectoryInstaller\LibraryInstaller as BaseCustomDirectoryLibraryInstallerInstaller;
 use Composer\Installers\BaseInstaller;
 use VendorPatch\OomphInc\ComposerInstallersExtender\Installers\CustomInstaller;
+
+use Composer\Composer;
+use Composer\Installer\BinaryInstaller;
+use Composer\Installer\LibraryInstaller;
+use Composer\IO\IOInterface;
+use Composer\Package\Package;
+use Composer\Package\PackageInterface;
+use Composer\Repository\InstalledRepositoryInterface;
+use Composer\Util\Filesystem;
+use React\Promise\PromiseInterface;
 
 class Installer extends InstallerBase
 {
@@ -44,13 +53,20 @@ class Installer extends InstallerBase
 
     /** @var BinaryInstaller */
     protected $binaryInstaller;
-    
-   public function __construct(PackageInterface $package = null, Composer $composer = null, IOInterface $io = null)
-    {
-        parent::__construct($package, $composer, $io);
-        $this->getInstallerTypes();
+
+
+   public function __construct(
+        IOInterface $io,
+        Composer $composer,
+        string $type = 'library',
+        ?Filesystem $filesystem = null,
+        ?BinaryInstaller $binaryInstaller = null
+    ) {
+        parent::__construct($io, $composer, $type, $filesystem, $binaryInstaller);
+         $this->getInstallerTypes();
     }
-      
+    
+   
  
     /**
      * {@inheritDoc}
