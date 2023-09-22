@@ -6,7 +6,7 @@ namespace VendorPatch\OomphInc\ComposerInstallersExtender\Installers;
 
 use Composer\Package\PackageInterface;
 use Composer\Installer\LibraryInstaller;
-use Composer\Installers\Installer;
+//use Composer\Installers\Installer;
 use Composer\CustomDirectoryInstaller\LibraryInstaller as BaseCustomDirectoryLibraryInstallerInstaller;
 use Composer\Installers\BaseInstaller;
 use VendorPatch\OomphInc\ComposerInstallersExtender\Installers\CustomInstaller;
