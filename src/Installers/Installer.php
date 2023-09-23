@@ -59,23 +59,22 @@ class Installer extends InstallerBase
      */
     public function getInstallPath(PackageInterface $package, string $frameworkType = ''): string
     {
+       $path = false; 
 
-       $args = func_get_args();
-       @list($package, $frameworkType) = $args;
         if(isset($frameworkType) && !empty($frameworkType) || !$this->composer){
-         return $this->getInstallPath_LibraryBase($package, $frameworkType ?? null);
+         $path = $this->getInstallPath_LibraryBase($package, $frameworkType ?? '');
+        }
+
+        if(false === $path || empty($path) ){
+            $installer = new CustomInstaller($package, $this->composer, $this->io);      
+            $path = $installer->getInstallPath($package, $package->getType());
         }
         
-      try{   
-        $installer = new CustomInstaller($package, $this->composer, $this->io);
-        $path = $installer->getInstallPath($package, $package->getType());
-
-
-        
-        return $path ?: LibraryInstaller::getInstallPath($package);
-      }catch(\Exception $e){
-        return LibraryInstaller::getInstallPath($package);
-      }
+        if(false === $path || empty($path) ){
+             $path = LibraryInstaller::getInstallPath($package);
+        }       
+      
+        return $path;
     }
 
     
@@ -84,6 +83,7 @@ class Installer extends InstallerBase
     
     public function getInstallPath_LibraryBase(PackageInterface $package, $frameworkType = '')
     {
+        $path = false;
         $type = $this->package->getType();
 
         $prettyName = $this->package->getPrettyName();
@@ -101,26 +101,26 @@ class Installer extends InstallerBase
 
         $extra = $package->getExtra();
         if (!empty($extra['installer-name'])) {
-            $availableVars['name'] = $extra['installer-name'];
+            $availableVars['installer'] = $extra['installer-name'];
         }
 
         if ($this->composer->getPackage()) {
-            $extra = $this->composer->getPackage()->getExtra();
+            $extra = array_merge_recursive($extra, $this->composer->getPackage()->getExtra());
             if (!empty($extra['installer-paths'])) {
                 $customPath = $this->mapCustomInstallPaths($extra['installer-paths'], $prettyName, $type, $vendor);
                 if ($customPath !== false) {
-                    return $this->templatePath($customPath, $availableVars);
+                    $path = $this->templatePath($customPath, $availableVars);
                 }
             }
         }
 
         $packageType = substr($type, strlen($frameworkType) + 1);
         $locations = $this->getLocations();
-        if (!isset($locations[$packageType])) {
-            throw new \InvalidArgumentException(sprintf('Package type "%s" is not supported', $type));
+        if (isset($locations[$packageType])) {
+           return $this->templatePath($locations[$packageType], $availableVars);
         }
 
-        return $this->templatePath($locations[$packageType], $availableVars);
+        return $path;
     }
 
 
