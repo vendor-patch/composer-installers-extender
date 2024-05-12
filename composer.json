@@ -21,7 +21,7 @@
         }
     ],
     "provide" : {
-         "oomphinc/composer-installers-extender" : "dev-master"
+         "oomphinc/composer-installers-extender" : "*"
     },
     "support": {
         "issues": "https://github.com/vendor-patch/composer-installers-extender/issues"
